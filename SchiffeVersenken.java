@@ -59,7 +59,7 @@ public class SchiffeVersenken {
         for (int j = spalte - 1; j <= spalte + laenge; j++) {
             if (j >= 0 && j < spielfeld[0].length && (zeile - 1 >= 0 && spielfeld[zeile - 1][j] != 0 ||
                     zeile + 1 < spielfeld.length && spielfeld[zeile + 1][j] != 0 || spielfeld[zeile][j] != 0)) {
-                return false; // Schiff ist zu nah an einem anderen Schiff oder Feld ist bereits angespielt
+                return false; 
             }
         }
 
@@ -74,7 +74,7 @@ public class SchiffeVersenken {
         for (int i = zeile - 1; i <= zeile + laenge; i++) {
             if (i >= 0 && i < spielfeld.length && (spalte - 1 >= 0 && spielfeld[i][spalte - 1] != 0 ||
                     spalte + 1 < spielfeld[0].length && spielfeld[i][spalte + 1] != 0 || spielfeld[i][spalte] != 0)) {
-                return false; // Schiff ist zu nah an einem anderen Schiff oder Feld ist bereits angespielt
+                return false; 
             }
         }
 
@@ -104,7 +104,7 @@ public class SchiffeVersenken {
         while (versenkteSchiffe < 3) {
             printSpielfeld(spielfeld);
 
-            // Eingabe für die Zeile mit Überprüfung auf Gültigkeit
+            
             do {
                 System.out.print("Gib die Zeile ein (0-4): ");
                 zeile = scanner.nextInt();
@@ -113,7 +113,7 @@ public class SchiffeVersenken {
                 }
             } while (zeile < 0 || zeile >= spielfeld.length);
 
-            // Eingabe für die Spalte mit Überprüfung auf Gültigkeit
+            
             do {
                 System.out.print("Gib die Spalte ein (0-4): ");
                 spalte = scanner.nextInt();
@@ -126,7 +126,7 @@ public class SchiffeVersenken {
                 System.out.println(ANSI_GREEN + "Treffer!" + ANSI_RESET);
                 spielfeld[zeile][spalte] = 2; // Markiere das Schiff als getroffen
 
-                // Überprüfe, ob das Schiff versenkt wurde
+                // Überprüft ob das Schiff versenkt wurde
                 if (schiffVersenkt(spielfeld, zeile, spalte)) {
                     System.out.println(ANSI_GREEN + "Schiff versenkt!" + ANSI_RESET);
                     versenkteSchiffe++;
